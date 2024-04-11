@@ -7,23 +7,26 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
     public:
-    vector <int> nFibonacci(int n){
-        vector<int> v;
-        v.push_back(0);
-        if ( n == 0 )
-            return v;
-        v.push_back(1);
-        v.push_back(1);
-        if ( n == 1 )
-            return v;
-        int a=1,b=2,c=2;
+    vector <int> nFibonacci(int N)
+    {
         
-        while( c<=n ){
-            v.push_back( c );
+        vector<int> v;
+        if(N == 0)
+        {
+            v={0};
+            return  v;
+        }
+        v={0,1,1};
+            
+        int a=1,b=2,c=2;
+        while(c<=N)
+        {
+            v.push_back(c);
             c = a + b;
             a = b;
             b = c;
         }
+        
         return v;
         //code here
     }
