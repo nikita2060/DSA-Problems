@@ -1,9 +1,22 @@
-void printNTimes(int n) {
-	// Write your code here.
-	if(n == 0)
-		return ;
-	else
-		cout<<"Coding Ninjas ";
-		printNTimes(n-1);
+//Question is demanding vector in return from  printNTimes function so we used  this approach
 
+void recursion(int n, vector <string> &v)
+	{
+		if(n < 1)
+		{
+			return;
+		}
+		else 
+		{
+			v.push_back("Coding Ninjas ");
+			recursion(n-1, v);
+		}
+	}
+vector<string> printNTimes(int n) 
+{
+	// Write your code here.
+	vector <string> v;
+	
+	recursion(n, v);
+	return v;
 }
