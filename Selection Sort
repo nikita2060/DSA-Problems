@@ -1,26 +1,20 @@
 //Sort the given unsorted array 'arr' of size 'N' in non-decreasing order using the selection sort algorithm.
 
-void selectionSort(vector<int>&arr) {
-
-    // Write your code here.
-    int n = arr.size();
-    for(int i = 0; i < n-1; i++)
-    {
-        int min = i;
-        for(int j = i+1;j < n; j++)
-        {
-            if(arr[j] < arr[min])
-            {
-                min = j;
+void selectionSort(vector<int>& arr) {
+    int n = arr.size(); // Get the size of the input array
+    for(int i = 0; i < n-1; i++) { // Outer loop: iterate over each element except the last one
+        int min = i; // Assume the current element is the minimum
+        for(int j = i+1; j < n; j++) { // Inner loop: iterate over the remaining elements
+            if(arr[j] < arr[min]) { // If any element is smaller than the current minimum
+                min = j; // Update the index of the minimum element
             }
-
         }
-        if(min != i)
-        {
+        if(min != i) { // If the minimum element is not the current element
+            // Swap the current element with the minimum element
             int temp = arr[min];
             arr[min] = arr[i];
             arr[i] = temp;
         }
-
     }
 }
+
