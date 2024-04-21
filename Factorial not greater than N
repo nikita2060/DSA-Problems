@@ -1,0 +1,14 @@
+vector<long long> factorialNumbers(long long n) {
+    // Write Your Code Here
+    long long fact = 1;
+    vector <long long> sorted_arr;
+    long long i = 1;
+    while(fact <= n)
+    {
+        sorted_arr.push_back(fact);
+        i++;
+        fact *= i;
+
+    }
+    return sorted_arr;   
+}
