@@ -63,13 +63,6 @@ class Solution
             }
             
         }
-        // for(i=0;i<n;i++)
-        //     {
-        //         for(j=0;j<n;j++)
-        //         {
-        //             System.out.print(matrix[i][j] + " ");
-        //         }
-        //         System.out.println();
-        //     }
+          
     }
 }
