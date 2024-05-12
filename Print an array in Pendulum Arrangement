@@ -1,0 +1,32 @@
+vector<int> pendulumArrangement(int arr[], int n) 
+{
+    vector<int> new_arr(n);
+    sort(arr,arr+n);
+    int j=1;
+    int mid = (n-1)/2;
+    
+    
+    new_arr[mid] = arr[0];
+    
+    
+    for(int i = 1; i <= mid ; i++)
+    {
+        new_arr[mid+i] = arr[j++];
+        new_arr[mid-i] = arr[j++];
+    }
+    
+    if(n%2 == 0)  //if size of array is even mid will be less so loop will run 1 time less thus we assign one last value ourselves.
+    {
+        new_arr[n-1] = arr[j];
+    }
+    
+    
+    
+        
+    
+    return new_arr;
+    
+    
+        
+    
+}
