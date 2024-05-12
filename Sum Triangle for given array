@@ -1,0 +1,27 @@
+//Given a array, write a program to construct a triangle where last row contains elements of given array, every element of second last row contains sum of below two elements and so on.
+
+vector<long long> getTriangle(int arr[], int n) { 
+    // Create a 2D vector to store the triangle 
+    vector<vector<long long>> matrix(n, vector<long long>(n, 0));
+
+    // Initialize last row of triangle with values from arr
+    for (int i = 0; i < n; i++)
+        matrix[n-1][i] = static_cast<long long>(arr[i]);
+
+    // Fill other rows of the triangle
+    for (int i = n-2; i >= 0; i--) {
+        for (int j = 0; j <= i; j++) {
+            matrix[i][j] = matrix[i+1][j] + matrix[i+1][j+1];
+        }
+    }
+
+    // Flatten the 2D vector into a 1D vector for output
+    vector<long long> result;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= i; j++) {
+            result.push_back(matrix[i][j]);
+        }
+    }
+
+    return result;
+}
