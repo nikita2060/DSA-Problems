@@ -1,0 +1,20 @@
+//Given an array of size n. The task is to rotate array by d elements where d ≤ n.
+
+class Solution{   
+public:
+    void reverse(int i ,int j,int arr[]) //we can define our own function to reverse or use STL reverse function
+    {
+        while(i < j)
+        {
+            swap(arr[i],arr[j]);
+            i++;
+            j--;
+        }
+    }
+    void leftRotate(int arr[], int n, int d) {
+        // code here
+        reverse(0,d-1,arr);  //for STL reverse function , reverse(arr,arr + d) should be written
+        reverse(d,n-1,arr);
+        reverse(0,n-1,arr);
+    }
+};
