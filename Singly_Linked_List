@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+class Node
+{
+    public:
+    int data;
+    Node *next;
+    
+    Node(int val)
+    {
+        data = val;
+        next = NULL;
+    }
+    
+    void insertathead(Node* &head,int data)
+    {
+        Node *temp = new Node(data);
+        temp->next = head;
+        head = temp;
+        
+    }
+    
+    void insertattail1(Node* &tail,int data) //using tail
+    {
+        Node *temp = new Node(data);
+        temp->next = NULL;
+        tail->next = temp;
+        tail = temp;
+    }
+    
+    void insertattail2(Node* head,int data) //using head
+    {
+        Node* node2 = new Node(data);
+        Node* temp =  head;
+        while(temp != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = node2;
+        
+    }
+    void print(Node* &head)
+    {
+        Node* temp = head;
+        while(temp != NULL)
+        {
+            cout<<temp->data<<"->";
+            temp = temp->next;
+        }
+    }
+};
+
+
+int main() {
+    
+    Node *node1 = new Node(2);
+    Node* head = node1;
+    Node* tail = node1;
+    cout<< "data:"<<node1->data;
+    head->insertathead(head,1);
+    node1->print(head);
+    tail->insertattail1(tail,3);
+    tail->insertattail2(head,4);
+    node1->print(head);
+    return 0;
