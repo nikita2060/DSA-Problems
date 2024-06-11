@@ -40,6 +40,20 @@ class Node
         temp->next = node2;
         
     }
+
+    void insertAtPosition(Node* head,int data,int position)
+    {
+        Node* node2 = new Node(data);
+        Node* temp = head;
+        int count=1;
+        while(count < position)
+        {
+            temp =temp->next;
+            count++;
+        }
+        node2->next = temp->next;
+        temp->next = node2;
+    }
     void print(Node* &head)
     {
         Node* temp = head;
