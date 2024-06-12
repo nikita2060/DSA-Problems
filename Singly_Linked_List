@@ -46,7 +46,7 @@ class Node
         Node* node2 = new Node(data);
         Node* temp = head;
         int count=1;
-        while(count < position)
+        while(count < position-1)
         {
             temp =temp->next;
             count++;
