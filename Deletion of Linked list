@@ -1,0 +1,10 @@
+//Delete from beginning
+head = head->next;
+
+
+//Delete from end
+struct node* temp = head;
+while(temp->next->next!=NULL){
+  temp = temp->next;
+}
+temp->next = NULL;
