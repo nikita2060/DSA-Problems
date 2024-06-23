@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <cstdbool>
+struct node {
+   int data;
+   int key;
+   struct node *next;
+};
+struct node *head = NULL;
+struct node *current = NULL;
+bool isEmpty(){
+   return head == NULL;
+}
+
+void insertFirst(int key, int data){
+
+   
+   struct node *link = (struct node*) malloc(sizeof(struct node));
+   link->key = key;
+   link->data = data;
+   if (isEmpty()) {
+      head = link;
+      head->next = head;
+   } else {
+
+      
+      link->next = head;
+
+      
+      head = link;
+   }
+}
+
+
+void printList(){
+   struct node *ptr = head;
+   printf("\n[ ");
+
+   
+   if(head != NULL) {
+      while(ptr->next != ptr) {
+         printf("(%d,%d) ",ptr->key,ptr->data);
+         ptr = ptr->next;
+      }
+   }
+   printf(" ]");
+}
+int main(){
+   insertFirst(1,10);
+   insertFirst(2,20);
+   insertFirst(3,30);
+   insertFirst(4,1);
+   insertFirst(5,40);
+   insertFirst(6,56);
+   printf("Circular Linked List: ");
+   
+   //print list
+   printList();
+   return 0;
+}
